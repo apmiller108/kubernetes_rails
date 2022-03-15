@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: postgres
+  name: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      volumes:
+        - name: pv-volume
+          persistentVolumeClaim:
+            claimName: pv-claim
+      containers:
+      - image: postgres:12
+        name: postgres
+        resources: {}
+        volumeMounts:
+          - mountPath: "/var/lib/postgresql/data"
+            name: pv-volume
+        ports:
+          - containerPort: 5432
+        envFrom:
+          - secretRef:
+              name: env-secrets
