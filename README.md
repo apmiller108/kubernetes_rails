@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is just for messing around with Kubernetes. 
 
-Things you may want to cover:
+See `yml` files for creating Kubernetes deployments for a Rails application with
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- a web application deployment
+- with a Postgres database
+- with Redis
+- and Sidekiq
