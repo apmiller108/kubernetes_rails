@@ -5,8 +5,8 @@ metadata:
     deployment.kubernetes.io/revision: "1"
   generation: 1
   labels:
-    app: kubetest-web
-  name: kubetest-web
+    app: rails-app
+  name: rails-app
   namespace: default
 spec:
   progressDeadlineSeconds: 600
@@ -14,7 +14,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: kubetest-web
+      app: rails-app
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -24,12 +24,12 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: kubetest-web
+        app: rails-app
     spec:
       containers:
       - image: apmiller108/kubetest:latest
         imagePullPolicy: Always
-        name: kubetest-web
+        name: rails-app
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
